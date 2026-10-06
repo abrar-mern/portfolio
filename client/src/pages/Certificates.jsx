@@ -1,9 +1,4 @@
-import typescriptPdf from "@/assets/files/certificates_pdf/TypeScript.pdf";
-import awsEcsPdf from "@/assets/files/certificates_pdf/aws_ecs.pdf";
-import cybersecurityPdf from "@/assets/files/certificates_pdf/cybersecurity_virtual_program.pdf";
-import dockerPdf from "@/assets/files/certificates_pdf/docker_fundamentals.pdf";
-import javascriptPdf from "@/assets/files/certificates_pdf/javascript.pdf";
-import pythonPdf from "@/assets/files/certificates_pdf/python.pdf";
+import mernCertificate from "@/assets/files/certificates_pdf/mern-certificate.jpg";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 import { Award, Calendar, ExternalLink } from "lucide-react";
@@ -11,68 +6,41 @@ import { Award, Calendar, ExternalLink } from "lucide-react";
 const certificates = [
   {
     id: 1,
-    title: "Typescript Programming",
-    issuer: "Geekster",
-    date: "22nd April 2025",
-    link: typescriptPdf,
+    title: "GitHub Copilot Certification",
+    issuer: "Microsoft / Simplilearn",
+    date: "2025",
     description:
-      "Covers TypeScript fundamentals, including syntax, types. Includes practical examples and real-world applications.",
-    skills: [
-      "TypeScript",
-      "JavaScript",
-      "Frontend Development",
-      "Backend Development",
-    ],
+      "Professional certification covering AI-assisted development workflows and GitHub Copilot practices.",
+    skills: ["GitHub Copilot", "AI-Driven SDLC", "Prompt Engineering"],
   },
   {
     id: 2,
-    title: "AWS ECS Deployment and Management",
-    issuer: "KodeKloud",
-    date: "20th March 2025",
-    link: awsEcsPdf,
+    title: "Web Development Bootcamp (MERN)",
+    issuer: "Code Help / Love Babbar",
+    date: "2026",
+    link: mernCertificate,
     description:
-      "Covers deploying and managing containers on AWS using ECS, including cluster management, load balancing, auto-scaling, and CI/CD integration.",
-    skills: ["AWS ECS", "Cloud Computing", "DevOps", "CI/CD"],
+      "Six-month comprehensive web development bootcamp, completed in 2025 and issued in April 2026.",
+    skills: ["MongoDB", "Express", "React", "Node.js"],
   },
   {
     id: 3,
-    title: "JavaScript Programming",
-    issuer: "HackerRank",
-    date: "18th February 2025",
-    link: javascriptPdf,
+    title: "AWS S3",
+    issuer: "Coursera",
+    date: "Certificate",
+    link: "https://www.coursera.org/account/accomplishments/verify/WUMH0TZLE8GY",
     description:
-      "Validates JavaScript fundamentals, including syntax, functions, and problem-solving.",
-    skills: ["JavaScript", "ES6", "Asynchronous Programming"],
+      "Cloud storage certification covering Amazon S3 fundamentals and practical AWS workflows.",
+    skills: ["AWS", "Amazon S3", "Cloud Infrastructure"],
   },
   {
     id: 4,
-    title: "Docker Fundamentals",
-    issuer: "KodeKloud",
-    date: "18th February 2025",
-    link: dockerPdf,
-    description:
-      "Teaches containerization, networking, security, and CI/CD with Docker.",
-    skills: ["Docker", "Containerization", "CI/CD"],
-  },
-  {
-    id: 5,
-    title: "Python Programming",
-    issuer: "HackerRank",
-    date: "10th October 2023",
-    link: pythonPdf,
-    description:
-      "Validates Python basics, including loops, functions, and data structures.",
-    skills: ["Python", "Functions", "Data Structures"],
-  },
-  {
-    id: 6,
-    title: "Cybersecurity Virtual Program",
-    issuer: "Forage",
-    date: "10th July 2023",
-    link: cybersecurityPdf,
-    description:
-      "Focuses on cybersecurity threats, vulnerabilities, and risk mitigation.",
-    skills: ["Cybersecurity", "Threat Mitigation", "Ransomware"],
+    title: "Git Certification",
+    issuer: "Great Learning",
+    date: "Certificate",
+    link: "https://www.mygreatlearning.com/certificate/MSKXTGOP",
+    description: "Version control and collaborative development with Git.",
+    skills: ["Git", "Version Control", "Collaboration"],
   },
 ];
 
@@ -115,17 +83,19 @@ const Certificates = () => {
                     </span>
                   ))}
                 </div>
-                <div className="mt-auto pt-4">
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 group-hover:translate-x-2 transition-transform"
-                  >
-                    View Certificate
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
+                {cert.link && (
+                  <div className="mt-auto pt-4">
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 group-hover:translate-x-2 transition-transform"
+                    >
+                      View Certificate
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </ScrollAnimation>

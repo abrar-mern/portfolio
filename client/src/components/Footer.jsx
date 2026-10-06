@@ -29,12 +29,10 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-3">
               <Code2 className="w-8 h-8 text-white" aria-hidden="true" />
-              <span className="text-xl font-bold text-white">
-                Niladri Chatterjee
-              </span>
+              <span className="text-xl font-bold text-white">Abrar Khan</span>
             </Link>
             <p className="text-sm text-gray-400">
-              Software Developer based in Kolkata, WB, India.
+              Senior Full Stack Developer based in Pune, India.
             </p>
           </div>
 
@@ -45,7 +43,7 @@ const Footer = () => {
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"
-                  aria-label="Email Niladri Chatterjee"
+                  aria-label="Email Abrar Khan"
                 >
                   <Mail className="w-4 h-4" aria-hidden="true" />
                   {CONTACT_INFO.email}
@@ -55,7 +53,7 @@ const Footer = () => {
                 <a
                   href={`tel:${CONTACT_INFO.phoneRaw}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-2"
-                  aria-label="Call Niladri Chatterjee"
+                  aria-label="Call Abrar Khan"
                 >
                   <Phone className="w-4 h-4" aria-hidden="true" />
                   {CONTACT_INFO.phone}
@@ -138,7 +136,7 @@ const Footer = () => {
         <div className="border-t border-white/10 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              © {currentYear} Niladri Chatterjee. All rights reserved.
+              © {currentYear} Abrar Khan. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <span className="text-sm text-gray-400 flex items-center gap-2">
@@ -150,7 +148,7 @@ const Footer = () => {
                 >
                   <path d="M12 1L24 22H0L12 1Z" />
                 </svg>
-                Niladri's Portfolio
+                Abrar&apos;s Portfolio
               </span>
             </div>
           </div>

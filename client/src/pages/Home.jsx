@@ -1,4 +1,4 @@
-import cvPdf from "@/assets/files/cv_pdf/Niladri_Chatterjee(CV).pdf";
+import cvPdf from "@/assets/files/cv_pdf/Abrar_Khan_Full_Stack_Developer.pdf";
 import { VercelLogo } from "@/components/TechLogos";
 import { CONTACT_INFO } from "@/config/contact";
 import { fetcher, formatRepoCount, isTouchDevice } from "@/utils/helpers";
@@ -16,7 +16,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import useSWR from "swr";
 
-const GITHUB_API = `https://api.github.com/users/${import.meta.env.VITE_GITHUB_USERNAME || "niladri-1"}`;
+const GITHUB_API = `https://api.github.com/users/${CONTACT_INFO.githubUsername}`;
 
 const Home = () => {
   const [copied, setCopied] = useState(false);
@@ -28,7 +28,9 @@ const Home = () => {
     errorRetryCount: 3,
   });
 
-  const displayRepos = formatRepoCount(githubData?.public_repos ?? 0);
+  const displayRepos = githubData?.public_repos
+    ? formatRepoCount(githubData.public_repos)
+    : "View";
 
   const copyToClipboard = async () => {
     try {
@@ -57,7 +59,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Niladri Chatterjee
+          Abrar Khan
         </motion.h1>
 
         <motion.h2
@@ -66,7 +68,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          I design & code for web
+          Senior Full Stack Developer
         </motion.h2>
 
         <motion.p
@@ -75,8 +77,8 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Software Developer specializing in Full Stack Development with
-          expertise in React.js, Node.js and modern Web Technologies.
+          I architect scalable MERN applications, multi-tenant SaaS products,
+          and AI-powered experiences for production teams.
         </motion.p>
 
         <motion.div
@@ -93,7 +95,7 @@ const Home = () => {
               className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2"
             >
               <FileDown className="w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-              Download CV
+              Download Resume
             </a>
             <Link
               to="/about"
@@ -172,9 +174,7 @@ const Home = () => {
             <span className="text-base sm:text-lg font-semibold">
               {CONTACT_INFO.linkedInFollowers}
             </span>
-            <span className="text-xs sm:text-sm text-gray-400">
-              LinkedIn Followers
-            </span>
+            <span className="text-xs sm:text-sm text-gray-400">LinkedIn</span>
           </motion.a>
 
           <motion.a
@@ -188,7 +188,7 @@ const Home = () => {
             <div className="p-3 rounded-xl transition-colors mb-2 w-full max-w-[200px]">
               <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover:text-white transition-colors mx-auto" />
             </div>
-            <span className="text-base sm:text-lg font-semibold">24x7</span>
+            <span className="text-base sm:text-lg font-semibold">Chat</span>
             <span className="text-xs sm:text-sm text-gray-400">
               WhatsApp Me
             </span>

@@ -1,5 +1,5 @@
-import cvPdf from "@/assets/files/cv_pdf/Niladri_Chatterjee(CV).pdf";
-import profileImg from "@/assets/profile/profile.jpg";
+import cvPdf from "@/assets/files/cv_pdf/Abrar_Khan_Full_Stack_Developer.pdf";
+import profileImg from "@/assets/profile/about-photo.png";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import { motion } from "framer-motion";
 import { Briefcase, Code2, Globe, GraduationCap } from "lucide-react";
@@ -8,18 +8,18 @@ import { Link } from "react-router-dom";
 const achievements = [
   {
     icon: <Code2 className="w-6 h-6" />,
-    title: "10+ Projects",
-    description: "Completed full-stack web applications",
+    title: "5+ Years",
+    description: "Continuous full-stack engineering experience",
   },
   {
     icon: <Briefcase className="w-6 h-6" />,
-    title: "3+ Internships",
-    description: "Professional work experience",
+    title: "50k+ Users",
+    description: "Production applications serving daily users",
   },
   {
     icon: <GraduationCap className="w-6 h-6" />,
-    title: "8.48 CGPA",
-    description: "Academic excellence",
+    title: "12+ Deployments",
+    description: "Production MERN applications delivered",
   },
 ];
 
@@ -30,12 +30,13 @@ const interests = [
   "DevOps",
   "Open Source",
   "Artificial Intelligence",
+  "System Architecture",
 ];
 
 const quickFacts = [
-  "Based in Kolkata, WB, India",
-  "B.Tech in Computer Science",
-  "CGPA: 8.48",
+  "Based in Pune, India",
+  "Senior Full Stack Developer and Technical Lead",
+  "5+ years building MERN and SaaS products",
 ];
 
 const About = () => {
@@ -49,13 +50,13 @@ const About = () => {
 
       <div className="grid md:grid-cols-2 gap-8">
         <ScrollAnimation>
-          <div className="aspect-square overflow-hidden rounded-2xl">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-slate-700/40 to-slate-950 p-2 shadow-2xl shadow-black/40">
             <img
               src={profileImg}
-              alt="Niladri Chatterjee"
-              width={600}
-              height={600}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              alt="Professional portrait of Abrar Khan"
+              width={800}
+              height={800}
+              className="w-full aspect-square object-cover object-center rounded-2xl"
             />
           </div>
         </ScrollAnimation>
@@ -63,23 +64,20 @@ const About = () => {
         <ScrollAnimation className="space-y-6">
           <div className="space-y-4">
             <p className="text-gray-300 leading-relaxed">
-              Hi! I'm a passionate full-stack developer with expertise in
-              building modern web applications. My journey in tech started
-              during my college years, where I discovered my love for creating
-              innovative solutions through code.
+              Hi! I&apos;m Abrar Khan, a Senior Full Stack Developer and
+              Technical Lead with 5+ years of experience building scalable web
+              products.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              I completed my B.Tech in Computer Science, maintaining a strong
-              academic record while actively engaging in real-world projects and
-              internships. This blend of theoretical knowledge and practical
-              experience has shaped my approach to problem-solving and software
-              development.
+              I lead architecture for enterprise MERN and multi-tenant SaaS
+              platforms, from reusable React interfaces to secure Node.js APIs,
+              optimized MongoDB data models and cloud deployments.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              I specialize in React, Node.js, and modern web technologies, with
-              a keen interest in creating performant and user-friendly
-              applications. My experience includes working with various startups
-              and contributing to open-source projects.
+              My recent work includes AI-assisted applications, Redis-backed
+              performance optimization, AWS infrastructure, Docker and CI/CD. I
+              also share practical MERN knowledge as a guest lecturer and
+              external examiner.
             </p>
           </div>
 
@@ -107,7 +105,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
             >
-              Download CV
+              Download Resume
             </a>
             <Link
               to="/skills"

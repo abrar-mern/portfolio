@@ -64,8 +64,10 @@ const skills = [
     items: [
       { name: "Node.js", icon: <NodeLogo /> },
       { name: "Express", icon: <ExpressLogo /> },
+      { name: "GraphQL", icon: <Code2 className="w-4 h-4" /> },
+      { name: "WebSockets", icon: <Server className="w-4 h-4" /> },
       { name: "JWT", icon: <JWTLogo /> },
-      { name: "Bcrypt", icon: <BcryptLogo /> },
+      { name: "OAuth 2.0", icon: <BcryptLogo /> },
     ],
   },
   {
@@ -73,7 +75,8 @@ const skills = [
     icon: <Database className="w-6 h-6" />,
     items: [
       { name: "MongoDB", icon: <MongoDBLogo /> },
-      { name: "Cloudinary", icon: <Cloud className="w-4 h-4" /> },
+      { name: "MySQL", icon: <Database className="w-4 h-4" /> },
+      { name: "Redis", icon: <Database className="w-4 h-4" /> },
       { name: "AWS", icon: <AWSLogo /> },
     ],
   },
@@ -83,8 +86,10 @@ const skills = [
     items: [
       { name: "Git", icon: <GitLogo /> },
       { name: "GitHub", icon: <GitLogo /> },
-      { name: "Vercel", icon: <VercelLogo /> },
-      { name: "Render", icon: <RenderLogo /> },
+      { name: "GitHub Actions", icon: <GitBranch className="w-4 h-4" /> },
+      { name: "Docker", icon: <Cloud className="w-4 h-4" /> },
+      { name: "Nginx", icon: <Server className="w-4 h-4" /> },
+      { name: "CI/CD", icon: <Terminal className="w-4 h-4" /> },
     ],
   },
   {
@@ -94,6 +99,8 @@ const skills = [
       { name: "VS Code", icon: <VSCodeLogo /> },
       { name: "Compass", icon: <MongoDBLogo /> },
       { name: "Postman", icon: <PostmanLogo /> },
+      { name: "Vercel", icon: <VercelLogo /> },
+      { name: "Render", icon: <RenderLogo /> },
     ],
   },
   {
@@ -112,6 +119,7 @@ const skills = [
       { name: "Teamwork", icon: <Users className="w-4 h-4" /> },
       { name: "Communication", icon: <MessageSquare className="w-4 h-4" /> },
       { name: "Debugging", icon: <Wrench className="w-4 h-4" /> },
+      { name: "Mentoring", icon: <Users className="w-4 h-4" /> },
     ],
   },
 ];

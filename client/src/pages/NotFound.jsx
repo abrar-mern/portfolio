@@ -48,8 +48,8 @@ const NotFound = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            Oops! The page you're looking for seems to have vanished into the
-            digital void.
+            Oops! The page you&apos;re looking for seems to have vanished into
+            the digital void.
           </motion.p>
         </ScrollAnimation>
 

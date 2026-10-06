@@ -4,57 +4,45 @@ import {
   Calendar,
   MapPin,
   BookOpen,
-  Award,
   FileText,
-  ExternalLink,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
-import collegeImg from "@/assets/education/college_img.jpg";
-import schoolImg from "@/assets/education/school_img.jpg";
-import bTechPdf from "@/assets/files/education_pdf/B Tech.pdf";
-import hsMarkSheetPdf from "@/assets/files/education_pdf/HS MARK SHEET.pdf";
+import collegeImg from "@/assets/education/scoe.webp";
+import puneUniversityImg from "@/assets/education/pune-university.jpg";
 
 const educationData = [
   {
     id: 1,
-    school: "Bengal College of Engineering and Technology",
-    location: "Durgapur, WB, India",
-    duration: "July 2020 - June 2024",
-    degree: "B.Tech (Computer Science and Engineering)",
-    grade: "CGPA: 8.48 (80%)",
+    school: "Sinhagad College of Engineering",
+    location: "Pune, India",
+    duration: "2019 - 2022",
+    degree: "Master of Computer Applications (MCA)",
     image: collegeImg,
-    resultUrl: bTechPdf,
     coursework: [
-      "Software Development",
-      "DSA",
-      "OOPs",
-      "DBMS",
-      "AI",
-      "ML",
-      "OS",
-      "Networking",
+      "Web Development",
+      "Software Engineering",
+      "Project Management",
+      "Data & Systems Architecture",
     ],
     description:
-      "During my time at BCET, I built a strong foundation in computer science, focusing on software development, problem-solving, and real-world applications. Engaging in hands-on projects, internships, and coding challenges enhanced my technical and analytical skills.",
+      "Advanced computer science and application development studies focused on software engineering, scalable systems and practical product delivery.",
   },
   {
     id: 2,
-    school: "Birsingha Bhagabati Vidyalaya (H.S)",
-    location: "Medinipur, WB, India",
-    duration: "June 2018 - July 2019",
-    degree: "Higher Secondary (WBSC)",
-    grade: "Percentage: 79%",
-    image: schoolImg,
-    resultUrl: hsMarkSheetPdf,
-    subjects: [
-      "Physics",
-      "Chemistry",
-      "Mathematics",
-      "Biology",
-      "Computer Science",
+    school: "Pune University",
+    location: "Pune, India",
+    duration: "2016 - 2019",
+    degree: "Bachelor of Computer Applications (BCA)",
+    image: puneUniversityImg,
+
+    coursework: [
+      "Programming Fundamentals",
+      "Database Management",
+      "Computer Networks",
+      "Web Technologies",
     ],
     description:
-      "My higher secondary education laid the foundation for my technical journey, strengthening analytical thinking and problem-solving abilities. The strong emphasis on mathematics and computer science shaped my passion for software development.",
+      "Built a strong foundation in programming, databases, networking and application development before moving into professional full-stack engineering.",
   },
 ];
 
@@ -86,7 +74,7 @@ const Education = () => {
                 <div className="relative h-96 md:h-full">
                   <img
                     src={edu.image}
-                    alt={edu.school}
+                    alt={`${edu.school} campus building`}
                     loading="lazy"
                     width={350}
                     height={400}
@@ -99,12 +87,15 @@ const Education = () => {
                         <MapPin className="w-4 h-4" />
                         <span>{edu.location}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-300">
-                        <Award className="w-4 h-4" />
-                        <span>{edu.grade}</span>
-                      </div>
                     </div>
                   </div>
+                  {edu.photoCredit && (
+                    <div className="absolute left-3 top-14 text-[11px] text-white bg-black/70 rounded-md px-2 py-1">
+                      Photo: <a href="https://commons.wikimedia.org/wiki/File:Savitribai_Phule_University_Main_Building.jpg" target="_blank" rel="noopener noreferrer" className="underline">Komal Sambhudas</a>
+                      {" · "}
+                      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" className="underline">CC BY-SA 4.0</a>
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
@@ -148,16 +139,6 @@ const Education = () => {
                     </div>
                   )}
 
-                  <motion.a
-                    href={edu.resultUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-sm font-medium"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    View Result
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.a>
                 </div>
               </div>
             </div>

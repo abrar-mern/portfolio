@@ -2,76 +2,95 @@ import { motion } from "framer-motion";
 import {
   Briefcase,
   MapPin,
-  Building2,
   ExternalLink,
   ArrowRight,
 } from "lucide-react";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
-import codeAlphaImg from "@/assets/experience/codeAlpha_page.jpg";
-import bharatInternImg from "@/assets/experience/bharatIntern_page.jpg";
-import codeClauseImg from "@/assets/experience/codeClause_page.jpg";
-import oasisInfobyteImg from "@/assets/experience/oasisInfobyte_page.jpg";
-import codeAlphaPdf from "@/assets/files/experience_pdf/codeAlpha.pdf";
-import bharatInternPdf from "@/assets/files/experience_pdf/bharatIntern.pdf";
-import codeClausePdf from "@/assets/files/experience_pdf/codeClause.pdf";
-import oasisInfobytePdf from "@/assets/files/experience_pdf/oasisInfobyte.pdf";
+import resumePdf from "@/assets/files/cv_pdf/Abrar_Khan_Full_Stack_Developer.pdf";
+import gladowlLogo from "@/assets/experience/gladowl-logo.png";
+import digitalRevolutionLogo from "@/assets/experience/digital-revolution-wordmark.png";
+import visulonLogo from "@/assets/experience/visulon-logo.webp";
+import transperfectLogo from "@/assets/experience/transperfect-wordmark.png";
+import destekLogo from "@/assets/experience/destek-logo.png";
 
 const experiences = [
   {
     id: 1,
-    title: "Software Engineering Intern",
-    company: "Code Alpha",
-    location: "Remote",
-    period: "Jun 2024 - Aug 2024",
-    type: "Internship",
-    image: codeAlphaImg,
-    certificateUrl: codeAlphaPdf,
+    title: "Technical Lead - Senior Full Stack Engineer",
+    company: "GladOwl Web Solutions Pvt. Ltd.",
+    location: "Pune, India",
+    period: "Jul 2023 - Present",
+    logo: gladowlLogo,
+    certificateUrl: resumePdf,
+    actionLabel: "View Resume",
     description: [
-      "Optimized web application performance with JavaScript and React.js, achieving a 98% error-free rate",
-      "Implemented advanced features on a React.js platform, resulting in a 40% surge in user interaction",
+      "Lead architecture for enterprise SaaS platforms and reduced backend response times from 800ms to 320ms with Redis caching and query profiling",
+      "Manage 12+ production MERN applications serving more than 50,000 daily active users",
+      "Automated GitHub Actions and AWS EC2 delivery pipelines, reducing deployment errors by 70%",
     ],
   },
   {
     id: 2,
-    title: "Full Stack Development Intern",
-    company: "Bharat Intern",
-    location: "Remote",
-    period: "Jun 2024 - Jul 2024",
-    type: "Internship",
-    image: bharatInternImg,
-    certificateUrl: bharatInternPdf,
+    title: "Full Stack Developer (MERN)",
+    company: "Digital Revolution",
+    location: "Pune, India",
+    period: "Nov 2022 - Jul 2023",
+    logo: digitalRevolutionLogo,
+    wideLogo: true,
+    darkLogoSurface: true,
+    certificateUrl: resumePdf,
+    actionLabel: "View Resume",
     description: [
-      "Designed 3 websites with CSS, JavaScript, React.js, Node.js and MongoDB, resulting in a 30% increase in user engagement",
-      "Built a money tracker app using HTML, CSS, React.js, Node.js, and MongoDB, improving user financial tracking by 25%",
+      "Built a modular React and Redux component library adopted across four major projects",
+      "Delivered eight MERN applications for EdTech and e-commerce clients with peak-load reliability",
+      "Implemented JWT, OAuth 2.0 and role-based access control for secure stakeholder workflows",
     ],
   },
   {
     id: 3,
-    title: "Web Applications Intern",
-    company: "CodeClause",
-    location: "Remote",
-    period: "Jun 2023 - Jul 2023",
-    type: "Internship",
-    image: codeClauseImg,
-    certificateUrl: codeClausePdf,
+    title: "Frontend Engineer (React)",
+    company: "Visulon",
+    location: "Pune, India",
+    period: "Jul 2022 - Nov 2022",
+    logo: visulonLogo,
+    wideLogo: true,
+    certificateUrl: resumePdf,
+    actionLabel: "View Resume",
     description: [
-      "Engineered a real-time collaborative document editor using Next.js, TypeScript, and Liveblocks, reducing latency by 30%",
-      "Implemented and optimized a personal portfolio with Next.js and Tailwind CSS, improving performance by 40%",
+      "Built responsive React, JavaScript and Tailwind CSS interfaces with strong cross-browser performance",
+      "Converted high-fidelity Figma designs into reusable component architectures",
+      "Optimized Redux Toolkit state and rendering flows for data-heavy application views",
     ],
   },
   {
     id: 4,
-    title: "Junior Web Developer",
-    company: "Oasis Infobyte",
-    location: "Remote",
-    period: "Jun 2023 - Jul 2023",
-    type: "Internship",
-    image: oasisInfobyteImg,
-    certificateUrl: oasisInfobytePdf,
+    title: "Software Engineer - Internationalization & Frontend",
+    company: "TransPerfect Solutions",
+    location: "Pune, India",
+    period: "Feb 2022 - Jul 2022",
+    logo: transperfectLogo,
+    wideLogo: true,
+    certificateUrl: resumePdf,
+    actionLabel: "View Resume",
     description: [
-      // TODO: Replace with your actual Oasis Infobyte work description
-      "Developed responsive web interfaces using HTML, CSS, and JavaScript, improving cross-browser compatibility across all target platforms",
-      "Built and deployed a task management web application with full CRUD functionality, enhancing team productivity tracking by 35%",
+      "Engineered internationalization architecture and localization workflows for multilingual platforms",
+      "Integrated automated string extraction and translation management into CI/CD and Git workflows",
+      "Resolved layout shifts, text truncation and UTF-8 encoding issues across localized builds",
+    ],
+  },
+  {
+    id: 5,
+    title: "Executive Software Developer",
+    company: "Destek Infosolutions Pvt. Ltd.",
+    location: "Pune, India",
+    period: "Apr 2021 - Feb 2022",
+    logo: destekLogo,
+    certificateUrl: resumePdf,
+    actionLabel: "View Resume",
+    description: [
+      "Developed scalable REST APIs with Node.js, Express and MongoDB for concurrent workloads",
+      "Refactored schemas, improved query indexing and removed application performance bottlenecks",
+      "Shipped enterprise platform modules in cross-functional Agile and Scrum teams",
     ],
   },
 ];
@@ -93,8 +112,13 @@ const Experience = () => {
               <div className="grid grid-cols-1 md:grid-cols-[1fr,300px]">
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                    <div className="p-2 sm:p-3 bg-white/10 rounded-lg sm:rounded-xl group-hover:bg-white/20 transition-colors">
-                      <Building2 className="w-6 h-6 sm:w-7 sm:h-7" />
+                    <div className={`${exp.wideLogo ? "w-36 h-16" : "w-14 h-14"} p-2 ${exp.darkLogoSurface ? "bg-gray-950" : "bg-white"} rounded-xl flex-shrink-0 flex items-center justify-center`}>
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className="w-full h-full object-contain"
+                        loading="lazy"
+                      />
                     </div>
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold mb-1">
@@ -125,41 +149,45 @@ const Experience = () => {
                     ))}
                   </ul>
 
-                  <motion.a
-                    href={exp.certificateUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="md:hidden mt-6 inline-flex items-center gap-2 px-6 py-2.5 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg transition-all duration-300 text-sm font-medium"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    View Certificate
-                    <ExternalLink className="w-4 h-4" />
-                  </motion.a>
-                </div>
-
-                <div className="relative hidden md:block">
-                  <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-500">
-                    <img
-                      src={exp.image}
-                      alt={exp.company}
-                      loading="lazy"
-                      width={300}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-gray-800/80 to-transparent" />
-                  </div>
-                  <div className="relative h-full flex items-center justify-center">
+                  {exp.certificateUrl && (
                     <motion.a
                       href={exp.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-3 text-white font-bold bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl flex items-center gap-2 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-white/20"
-                      whileHover={{ y: -5 }}
+                      className="md:hidden mt-6 inline-flex items-center gap-2 px-6 py-2.5 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg transition-all duration-300 text-sm font-medium"
+                      whileHover={{ scale: 1.02 }}
                     >
-                      View Certificate
+                      {exp.actionLabel || "View Details"}
                       <ExternalLink className="w-4 h-4" />
                     </motion.a>
+                  )}
+                </div>
+
+                <div className="relative hidden md:block min-h-72 bg-gradient-to-br from-gray-800 via-gray-950 to-black border-l border-white/5">
+                  <div className="absolute inset-0 gradient-grid opacity-50" />
+                  <div className="relative h-full flex items-center justify-center">
+                    <div className="flex flex-col items-center gap-6">
+                      <div className={`w-64 h-32 rounded-3xl ${exp.darkLogoSurface ? "bg-gray-950" : "bg-white"} p-4 flex items-center justify-center group-hover:scale-105 transition-transform`}>
+                        <img
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                      {exp.certificateUrl && (
+                        <motion.a
+                          href={exp.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-8 py-3 text-white font-bold bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl flex items-center gap-2 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-white/20"
+                          whileHover={{ y: -5 }}
+                        >
+                          {exp.actionLabel || "View Details"}
+                          <ExternalLink className="w-4 h-4" />
+                        </motion.a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -1,55 +1,55 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const BASE_URL = "https://niladri1.vercel.app";
+const BASE_URL = import.meta.env.VITE_SITE_URL || "http://localhost:5173";
 
 const PAGE_META = {
   "/": {
-    title: "Niladri Chatterjee - Full Stack Developer | MERN Stack Expert",
+    title: "Abrar Khan - Senior Full Stack Developer | MERN Stack",
     description:
-      "Niladri Chatterjee — Full Stack Developer specializing in MERN stack, React.js, Node.js, Next.js and TypeScript. Based in Kolkata, India.",
+      "Abrar Khan is a Senior Full Stack Developer and Technical Lead building scalable MERN, SaaS and AI-powered applications.",
   },
   "/about": {
-    title: "About - Niladri Chatterjee | Full Stack Developer",
+    title: "About - Abrar Khan | Full Stack Developer",
     description:
-      "Learn about Niladri Chatterjee — B.Tech Computer Science graduate, Full Stack Developer with 3+ internships and 10+ projects.",
+      "Learn about Abrar Khan, a Senior Full Stack Developer with 5+ years of experience across MERN, SaaS, AWS and AI-powered products.",
   },
   "/projects": {
-    title: "Projects - Niladri Chatterjee | Full Stack Developer Portfolio",
+    title: "Projects - Abrar Khan | Full Stack Developer Portfolio",
     description:
-      "Explore full-stack web projects built by Niladri Chatterjee using React.js, Node.js, MongoDB, Next.js and TypeScript.",
+      "Explore full-stack web projects built by Abrar Khan using React.js, Node.js, Express and MongoDB.",
   },
   "/skills": {
-    title: "Skills - Niladri Chatterjee | React, Node.js, MERN Stack",
+    title: "Skills - Abrar Khan | React, Node.js, MERN Stack",
     description:
-      "Technical skills of Niladri Chatterjee — React.js, Node.js, Express, MongoDB, Next.js, TypeScript, AWS, Docker and more.",
+      "Technical skills of Abrar Khan, including React.js, Node.js, Express, MongoDB and full-stack web development.",
   },
   "/experience": {
-    title: "Experience - Niladri Chatterjee | Full Stack Developer",
+    title: "Experience - Abrar Khan | Full Stack Developer",
     description:
-      "Professional experience of Niladri Chatterjee including internships in full stack web development.",
+      "Professional experience and development background of Abrar Khan.",
   },
   "/education": {
-    title: "Education - Niladri Chatterjee | B.Tech Computer Science",
+    title: "Education - Abrar Khan | Full Stack Developer",
     description:
-      "Educational background of Niladri Chatterjee — B.Tech in Computer Science with 8.48 CGPA.",
+      "Educational background and technical learning path of Abrar Khan.",
   },
   "/certificates": {
-    title: "Certificates - Niladri Chatterjee | Developer Certifications",
+    title: "Certificates - Abrar Khan | Developer Certifications",
     description:
-      "Professional certifications and achievements of Niladri Chatterjee in web development and cloud technologies.",
+      "Professional certifications and achievements of Abrar Khan in web development and related technologies.",
   },
   "/contact": {
-    title: "Contact - Niladri Chatterjee | Hire a Full Stack Developer",
+    title: "Contact - Abrar Khan | Hire a Full Stack Developer",
     description:
-      "Get in touch with Niladri Chatterjee for freelance projects, job opportunities or collaborations.",
+      "Get in touch with Abrar Khan for freelance projects, job opportunities or collaborations.",
   },
 };
 
 const FALLBACK_META = {
-  title: "Niladri Chatterjee - Full Stack Developer",
+  title: "Abrar Khan - Full Stack Developer",
   description:
-    "Portfolio of Niladri Chatterjee — Full Stack Developer specializing in MERN stack.",
+    "Portfolio of Abrar Khan, Full Stack Developer specializing in MERN stack.",
 };
 
 export const useSEO = () => {
