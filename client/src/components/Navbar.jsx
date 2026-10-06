@@ -46,13 +46,17 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="relative">
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
+        <div className="absolute inset-0 border-b border-slate-200 bg-white/95 backdrop-blur-md" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <Link to="/" className="flex items-center space-x-3">
-              <Code2 className="w-8 h-8 text-white" aria-hidden="true" />
-              <span className="text-xl font-bold text-white">Abrar</span>
+              <span className="grid h-9 w-9 place-items-center rounded-lg bg-blue-600 text-white">
+                <Code2 className="w-5 h-5 !text-white" aria-hidden="true" />
+              </span>
+              <span className="text-xl font-bold tracking-tight text-slate-900">
+                Abrar<span className="text-blue-600">.</span>
+              </span>
             </Link>
 
             <div className="hidden md:flex items-center space-x-6">
@@ -61,7 +65,7 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`nav-link ${location.pathname === link.path ? "bg-white/15 backdrop-blur-sm" : ""}`}
+                  className={`nav-link ${location.pathname === link.path ? "bg-blue-50 text-blue-700" : ""}`}
                   aria-current={
                     location.pathname === link.path ? "page" : undefined
                   }
@@ -74,7 +78,7 @@ const Navbar = () => {
             <div className="flex md:hidden items-center space-x-2">
               <SearchDialog />
               <button
-                className="p-2 text-gray-400 hover:text-white transition-colors"
+                className="p-2 text-slate-500 hover:text-blue-600 transition-colors"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
                 aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={isMenuOpen}
@@ -91,7 +95,7 @@ const Navbar = () => {
 
         {isMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-black/50 backdrop-blur-xl"
+            className="md:hidden absolute top-full left-0 right-0 border-b border-slate-200 bg-white/95 backdrop-blur-md"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2 }}
@@ -101,9 +105,9 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block px-3 py-2 text-gray-400 hover:text-white transition-colors ${
+                  className={`block rounded-lg px-3 py-2 text-slate-600 hover:bg-blue-50 hover:text-blue-700 transition-colors ${
                     location.pathname === link.path
-                      ? "bg-white/10 backdrop-blur-sm text-white"
+                      ? "bg-blue-50 text-blue-700"
                       : ""
                   }`}
                   onClick={() => setIsMenuOpen(false)}

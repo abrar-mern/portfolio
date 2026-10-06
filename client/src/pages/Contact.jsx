@@ -85,22 +85,22 @@ const Contact = () => {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-3 mb-10">
-          <MessageSquare className="w-8 h-8" />
-          <h1 className="text-4xl font-bold gradient-text">Get in Touch</h1>
+          <MessageSquare className="w-8 h-8 text-blue-600" />
+          <h1 className="page-title">Get in Touch</h1>
         </div>
 
         <div className="grid lg:grid-cols-[1fr,1.5fr] gap-8">
           <aside className="space-y-6">
-            <div className="bg-gray-800/50 border border-white/5 p-6 rounded-xl">
-              <h2 className="text-xl font-semibold mb-6">Contact Information</h2>
+            <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <h2 className="mb-6 text-xl font-semibold text-slate-900">Contact Information</h2>
               <div className="space-y-5">
                 {contactLinks.map(({ label, value, href, icon: Icon }) => {
                   const content = (
                     <>
-                      <Icon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                      <Icon className="w-5 h-5 text-blue-600 flex-shrink-0" />
                       <span>
-                        <span className="block text-xs text-gray-400">{label}</span>
-                        <span className="break-all">{value}</span>
+                        <span className="block text-xs text-slate-500">{label}</span>
+                        <span className="break-all text-slate-700">{value}</span>
                       </span>
                     </>
                   );
@@ -108,12 +108,12 @@ const Contact = () => {
                     <a
                       key={label}
                       href={href}
-                      className="flex items-center gap-3 hover:text-white text-gray-200 transition-colors"
+                      className="flex items-center gap-3 text-slate-700 transition-colors hover:text-blue-700"
                     >
                       {content}
                     </a>
                   ) : (
-                    <div key={label} className="flex items-center gap-3 text-gray-200">
+                    <div key={label} className="flex items-center gap-3 text-slate-700">
                       {content}
                     </div>
                   );
@@ -121,8 +121,8 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-gray-800/50 border border-white/5 p-6 rounded-xl">
-              <h2 className="text-xl font-semibold mb-5">Connect with Me</h2>
+            <div className="rounded-xl border border-slate-200 bg-white p-6">
+              <h2 className="mb-5 text-xl font-semibold text-slate-900">Connect with Me</h2>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map(({ label, href, icon: Icon }) => (
                   <a
@@ -130,7 +130,7 @@ const Contact = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                   >
                     <Icon className="w-4 h-4" />
                     {label}
@@ -140,9 +140,9 @@ const Contact = () => {
             </div>
           </aside>
 
-          <div className="bg-gray-800/50 border border-white/5 p-6 sm:p-8 rounded-xl">
-            <h2 className="text-xl font-semibold mb-2">Send a Message</h2>
-            <p className="text-sm text-gray-400 mb-6">
+          <div className="rounded-xl border border-slate-200 bg-white p-6 sm:p-8">
+            <h2 className="mb-2 text-xl font-semibold text-slate-900">Send a Message</h2>
+            <p className="mb-6 text-sm text-slate-500">
               Your message will go to {CONTACT_INFO.email}.
             </p>
             <form
@@ -169,10 +169,10 @@ const Contact = () => {
                       onChange={handleChange}
                       maxLength={field.name === "name" ? 100 : 254}
                       aria-invalid={Boolean(errors[field.name])}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/40 outline-none text-white"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                     />
                     {errors[field.name] && (
-                      <p className="mt-1 text-sm text-red-400">{errors[field.name]}</p>
+                      <p className="mt-1 text-sm text-red-600">{errors[field.name]}</p>
                     )}
                   </div>
                 ))}
@@ -189,10 +189,10 @@ const Contact = () => {
                   onChange={handleChange}
                   maxLength={200}
                   aria-invalid={Boolean(errors.subject)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/40 outline-none text-white"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                 />
                 {errors.subject && (
-                  <p className="mt-1 text-sm text-red-400">{errors.subject}</p>
+                  <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
                 )}
               </div>
               <div>
@@ -207,10 +207,10 @@ const Contact = () => {
                   onChange={handleChange}
                   maxLength={5000}
                   aria-invalid={Boolean(errors.message)}
-                  className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-white/40 outline-none text-white resize-y"
+                  className="w-full resize-y rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-blue-600 focus:ring-2 focus:ring-blue-100"
                 />
                 {errors.message && (
-                  <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
                 )}
               </div>
               <div className="hidden" aria-hidden="true">
@@ -228,14 +228,14 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full inline-flex justify-center items-center gap-2 px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-medium !text-white transition-colors hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 <Send className="w-4 h-4" />
                 Send Message
               </button>
-              <p className="text-sm text-gray-400 text-center">
+              <p className="text-center text-sm text-slate-500">
                 Having trouble?{" "}
-                <a href={emailFallback} className="text-white underline underline-offset-2">
+                <a href={emailFallback} className="font-medium text-blue-600 underline underline-offset-2 hover:text-blue-800">
                   Send from your email app instead
                 </a>
                 .

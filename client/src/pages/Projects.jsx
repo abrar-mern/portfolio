@@ -1,7 +1,26 @@
+/* eslint-disable react/prop-types */
+import adminTree from "@/assets/projects_showcase/admintree.jpeg";
+import ecommerceDesktop from "@/assets/projects_showcase/ecommerce-desktop.jpeg";
+import ecommerceMobile from "@/assets/projects_showcase/ecommerce-mobile.jpeg";
+import evolveDesktop from "@/assets/projects_showcase/evolve-desktop.jpeg";
+import evolveMobile from "@/assets/projects_showcase/evolve-mobile.jpeg";
+import evolvePune from "@/assets/projects_showcase/evolve-pune.jpeg";
+import fintechLaptop from "@/assets/projects_showcase/fintech-laptop.jpeg";
+import hygieneFoods from "@/assets/projects_showcase/hygiene-foods.jpeg";
+import madhumakshika from "@/assets/projects_showcase/madhumakshika.jpeg";
+import razorpay from "@/assets/projects_showcase/razorpay.jpeg";
+import skinocare from "@/assets/projects_showcase/skinocare.jpeg";
 import { ScrollAnimation } from "@/components/ScrollAnimation";
 import { CONTACT_INFO } from "@/config/contact";
 import { fetcher } from "@/utils/helpers";
-import { ExternalLink, Github, Loader2 } from "lucide-react";
+import {
+  ArrowUpRight,
+  Briefcase,
+  Code2,
+  Github,
+  LayoutGrid,
+  Loader2,
+} from "lucide-react";
 import { useRef, useState } from "react";
 import useSWR from "swr";
 
@@ -16,282 +35,338 @@ const excludedRepos = new Set([
   "abrar-mern",
   "bootstrap-landing-pages",
 ]);
-const seriesRepos = new Set([
-  "React-Series",
-  "Node-Series",
-  "HTML-Series",
-  "JS-Codegyaani-Series",
-  "mern-interview-prep",
-]);
 
-const featuredDetails = {
-  ScribePath: {
+const clientProjects = [
+  {
+    title: "AdminTree",
+    eyebrow: "SaaS business platform",
     description:
-      "An AI workflow platform that turns meeting conversations into actionable project paths using language models and graph logic.",
-    tags: ["React", "Node.js", "AI", "Graph Algorithms"],
+      "A responsive operations dashboard designed to make workforce data, projects and performance signals easy to scan.",
+    image: adminTree,
+    tags: ["SaaS", "Dashboard", "Responsive UI"],
   },
-  "MERN-LMS-Platform": {
+  {
+    title: "Evolve Pune",
+    eyebrow: "Educational platform",
     description:
-      "A full-stack learning management platform built around the MERN stack for course and learner workflows.",
-    tags: ["MongoDB", "Express", "React", "Node.js"],
+      "A content-rich learning experience spanning web and mobile, with courses, events and community journeys.",
+    image: evolvePune,
+    tags: ["WordPress", "Mobile Integration", "Education"],
   },
-  "mern-interview-prep": {
+  {
+    title: "Hygiene Halal Foods",
+    eyebrow: "Food commerce",
     description:
-      "A practical MERN interview preparation resource with JavaScript examples and full-stack engineering material.",
-    tags: ["MERN", "JavaScript", "Interview Prep"],
+      "A product-led storefront that helps customers move quickly from category discovery to a mobile-friendly cart.",
+    image: hygieneFoods,
+    tags: ["WooCommerce", "Product UX", "E-commerce"],
   },
-  "Node-Series": {
+  {
+    title: "Madhumakshika",
+    eyebrow: "D2C e-commerce",
     description:
-      "Node.js learning projects including a deployed authentication application and backend implementation examples.",
-    tags: ["Node.js", "Express", "Authentication", "JavaScript"],
+      "A warm, product-focused shopping experience for a natural honey brand, optimized across desktop and mobile.",
+    image: madhumakshika,
+    tags: ["WooCommerce", "Catalog", "Payments"],
   },
-  "React-Series": {
+  {
+    title: "Razorpay Clone",
+    eyebrow: "Fintech interface",
     description:
-      "A collection of React projects and patterns with a live deployment for hands-on frontend learning.",
-    tags: ["React", "JavaScript", "Frontend"],
+      "A responsive recreation of a modern payment platform, focused on strong hierarchy and technical polish.",
+    image: razorpay,
+    tags: ["Fintech", "Frontend", "Responsive UI"],
   },
-};
+  {
+    title: "Skinocare",
+    eyebrow: "Beauty & wellness clinic",
+    description:
+      "A calm clinic experience combining service discovery with consultation forms and appointment booking.",
+    image: skinocare,
+    tags: ["Booking", "Forms", "Responsive UI"],
+  },
+];
+
+const productStudies = [
+  {
+    title: "Mobile Commerce",
+    eyebrow: "Product UI study",
+    description:
+      "A focused mobile cart concept balancing clear product information, quantity controls and a direct checkout path.",
+    image: ecommerceMobile,
+    tags: ["Mobile UX", "E-commerce", "UI Design"],
+  },
+  {
+    title: "Premium Storefront",
+    eyebrow: "Responsive commerce",
+    description:
+      "A desktop shopping concept with a refined visual system and a consistent experience across screen sizes.",
+    image: ecommerceDesktop,
+    tags: ["Web Design", "Responsive", "Commerce"],
+  },
+  {
+    title: "Fintech Landing Experience",
+    eyebrow: "Interface exploration",
+    description:
+      "A polished payment-product landing page built around confidence, clarity and strong conversion cues.",
+    image: fintechLaptop,
+    tags: ["Landing Page", "Fintech", "Frontend"],
+  },
+  {
+    title: "Evolve Pune — Mobile",
+    eyebrow: "Responsive case study",
+    description:
+      "A mobile-first view of the education platform, preserving content depth without losing a clear path forward.",
+    image: evolveMobile,
+    tags: ["Mobile", "Education", "Content UX"],
+  },
+  {
+    title: "Evolve Pune — Desktop",
+    eyebrow: "Responsive case study",
+    description:
+      "The desktop counterpart pairs promotional content with an approachable, editorial reading experience.",
+    image: evolveDesktop,
+    tags: ["Desktop", "Web Design", "WordPress"],
+  },
+];
 
 const fallbackRepos = [
   {
     name: "ScribePath",
     html_url: "https://github.com/abrar-mern/ScribePath",
-    homepage: "",
     language: "JavaScript",
-    description: featuredDetails.ScribePath.description,
-    fork: false,
-    archived: false,
-    pushed_at: "2026-05-12T08:06:32Z",
+    description:
+      "An AI workflow platform that turns meeting conversations into actionable project paths.",
   },
   {
     name: "MERN-LMS-Platform",
     html_url: "https://github.com/abrar-mern/MERN-LMS-Platform",
-    homepage: "",
     language: "JavaScript",
-    description: featuredDetails["MERN-LMS-Platform"].description,
-    fork: false,
-    archived: false,
-    pushed_at: "2026-05-05T18:55:04Z",
-  },
-  {
-    name: "Node-Series",
-    html_url: "https://github.com/abrar-mern/Node-Series",
-    homepage: "https://authentication-virid-omega.vercel.app",
-    language: "JavaScript",
-    description: featuredDetails["Node-Series"].description,
-    fork: false,
-    archived: false,
-    pushed_at: "2025-09-04T12:45:17Z",
+    description:
+      "A full-stack learning management platform for course and learner workflows.",
   },
   {
     name: "React-Series",
     html_url: "https://github.com/abrar-mern/React-Series",
-    homepage: "https://react-series-sooty.vercel.app",
     language: "JavaScript",
-    description: featuredDetails["React-Series"].description,
-    fork: false,
-    archived: false,
-    pushed_at: "2025-07-08T09:08:12Z",
+    description:
+      "A collection of React projects, patterns and frontend experiments.",
   },
 ];
 
-const getRepoTags = (repo) => {
-  const customTags = featuredDetails[repo.name]?.tags || [];
-  const tags = [repo.language, ...customTags, ...(repo.topics || [])].filter(
-    Boolean,
-  );
-  return [...new Set(tags)].slice(0, 6);
-};
-
 const formatRepoName = (name) => name.replaceAll("-", " ").replaceAll("_", " ");
 
+const ProjectCard = ({ project }) => (
+  <article className="project-card group">
+    <div className="project-visual">
+      <img
+        src={project.image}
+        alt={`${project.title} project preview`}
+        loading="lazy"
+        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.025]"
+      />
+    </div>
+    <div className="project-card-body">
+      <p className="project-eyebrow">{project.eyebrow}</p>
+      <h3>{project.title}</h3>
+      <p className="project-description">{project.description}</p>
+      <div className="project-tags">
+        {project.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+    </div>
+  </article>
+);
+
+const RepositoryCard = ({ repo }) => {
+  const tags = [
+    ...new Set([repo.language, ...(repo.topics || [])].filter(Boolean)),
+  ].slice(0, 4);
+  return (
+    <article className="repo-card group">
+      <div className="repo-icon">
+        <Code2 className="h-5 w-5" />
+      </div>
+      <p className="project-eyebrow">Open-source repository</p>
+      <h3>{formatRepoName(repo.name)}</h3>
+      <p className="project-description">
+        {repo.description ||
+          "Explore the source, implementation details and latest updates in this public repository."}
+      </p>
+      <div className="project-tags">
+        {tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      <div className="mt-auto flex items-center gap-5 border-t border-slate-200 pt-4">
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+          <Github className="h-4 w-4" /> Source{" "}
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </a>
+        {repo.homepage && (
+          <a href={repo.homepage} target="_blank" rel="noopener noreferrer">
+            Live demo <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        )}
+      </div>
+    </article>
+  );
+};
+
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState("Projects");
+  const [activeTab, setActiveTab] = useState("Client work");
   const tabRefs = useRef([]);
   const { data, error, isLoading } = useSWR(GITHUB_REPOS_API, fetcher, {
     revalidateOnFocus: false,
     dedupingInterval: 300000,
     errorRetryCount: 2,
   });
-
   const repositories = (data?.length ? data : fallbackRepos)
-    .filter((repo) => !repo.fork && !repo.archived && !excludedRepos.has(repo.name))
-    .sort((a, b) => {
-      const aFeatured = featuredDetails[a.name] ? 1 : 0;
-      const bFeatured = featuredDetails[b.name] ? 1 : 0;
-      return (
-        bFeatured - aFeatured ||
-        new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime()
-      );
-    });
-  const projectGroups = [
+    .filter(
+      (repo) => !repo.fork && !repo.archived && !excludedRepos.has(repo.name),
+    )
+    .slice(0, 12);
+  const groups = [
     {
-      title: "Projects",
-      description: "Applications, client work and experiments built for real use.",
-      repositories: repositories.filter((repo) => !seriesRepos.has(repo.name)),
+      title: "Client work",
+      icon: Briefcase,
+      description:
+        "Production work shaped around real businesses, customers and outcomes.",
+      items: clientProjects,
+      type: "visual",
     },
     {
-      title: "Learning Series",
-      description: "Code collections and resources for learning full-stack development.",
-      repositories: repositories.filter((repo) => seriesRepos.has(repo.name)),
+      title: "Product UI",
+      icon: LayoutGrid,
+      description:
+        "Focused interface explorations across commerce, education and fintech.",
+      items: productStudies,
+      type: "visual",
+    },
+    {
+      title: "GitHub",
+      icon: Github,
+      description:
+        "Open-source builds, technical experiments and learning resources.",
+      items: repositories,
+      type: "repo",
     },
   ];
-  const activeGroup = projectGroups.find((group) => group.title === activeTab);
+  const activeGroup = groups.find((group) => group.title === activeTab);
 
   const handleTabKeyDown = (event, index) => {
     let nextIndex;
-    if (event.key === "ArrowRight") nextIndex = (index + 1) % projectGroups.length;
-    if (event.key === "ArrowLeft") nextIndex = (index - 1 + projectGroups.length) % projectGroups.length;
+    if (event.key === "ArrowRight") nextIndex = (index + 1) % groups.length;
+    if (event.key === "ArrowLeft")
+      nextIndex = (index - 1 + groups.length) % groups.length;
     if (event.key === "Home") nextIndex = 0;
-    if (event.key === "End") nextIndex = projectGroups.length - 1;
+    if (event.key === "End") nextIndex = groups.length - 1;
     if (nextIndex === undefined) return;
     event.preventDefault();
-    setActiveTab(projectGroups[nextIndex].title);
+    setActiveTab(groups[nextIndex].title);
     tabRefs.current[nextIndex]?.focus();
   };
 
   return (
-    <div className="min-h-screen pt-20 px-4 max-w-7xl mx-auto pb-20">
-      <ScrollAnimation>
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
-          <div>
-            <h2 className="text-4xl font-bold mb-3 gradient-text">
-              GitHub Projects
-            </h2>
-            <p className="text-gray-400 max-w-2xl">
-              Explore my applications and learning series. Choose a tab to
-              switch between them.
-            </p>
-          </div>
-          <a
-            href={CONTACT_INFO.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
-          >
-            <Github className="w-4 h-4" />
-            View GitHub profile
-          </a>
-        </div>
-      </ScrollAnimation>
+    <div className="min-h-screen px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <ScrollAnimation>
+          <header className="projects-header">
+            <div>
+              <span className="section-kicker">Portfolio</span>
+              <h1>Work that turns complex ideas into clear products.</h1>
+            </div>
+            <div className="projects-intro">
+              <p>
+                A closer look at client platforms, product interfaces and the
+                code behind them—from first interaction to production delivery.
+              </p>
+              <a
+                href={CONTACT_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4" /> GitHub profile{" "}
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
+          </header>
+        </ScrollAnimation>
 
-      {isLoading && !data && (
         <div
-          className="flex items-center gap-3 text-gray-400 mb-6"
-          role="status"
+          className="project-tabs"
+          role="tablist"
+          aria-label="Project categories"
         >
-          <Loader2 className="w-5 h-5 animate-spin" />
-          Loading the latest repositories...
+          {groups.map((group, index) => {
+            const Icon = group.icon;
+            const isActive = activeTab === group.title;
+            return (
+              <button
+                key={group.title}
+                ref={(element) => {
+                  tabRefs.current[index] = element;
+                }}
+                id={`projects-tab-${index}`}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={`projects-panel-${index}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveTab(group.title)}
+                onKeyDown={(event) => handleTabKeyDown(event, index)}
+                className={isActive ? "active" : ""}
+              >
+                <Icon className="h-4 w-4" />
+                {group.title}
+                <span>{group.items.length}</span>
+              </button>
+            );
+          })}
         </div>
-      )}
 
-      {error && (
-        <p className="text-sm text-amber-300/90 mb-6">
-          GitHub is temporarily unavailable, so cached featured repositories are
-          shown.
-        </p>
-      )}
-
-      <div role="tablist" aria-label="Project categories" className="flex flex-wrap gap-2 mb-8 border-b border-white/10 pb-3">
-        {projectGroups.map((group, index) => (
-          <button
-            key={group.title}
-            ref={(element) => { tabRefs.current[index] = element; }}
-            id={`projects-tab-${index}`}
-            type="button"
-            role="tab"
-            aria-selected={activeTab === group.title}
-            aria-controls={`projects-panel-${index}`}
-            tabIndex={activeTab === group.title ? 0 : -1}
-            onClick={() => setActiveTab(group.title)}
-            onKeyDown={(event) => handleTabKeyDown(event, index)}
-            className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-colors ${activeTab === group.title ? "bg-white text-black" : "bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white"}`}
-          >
-            {group.title}
-            <span className="ml-2 opacity-60">{group.repositories.length}</span>
-          </button>
-        ))}
-      </div>
-
-      <section
-        id={`projects-panel-${projectGroups.findIndex((group) => group.title === activeTab)}`}
-        role="tabpanel"
-        aria-labelledby={`projects-tab-${projectGroups.findIndex((group) => group.title === activeTab)}`}
-        className="mb-16"
-      >
-          <p className="text-gray-400 mb-6">{activeGroup.description}</p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {activeGroup.repositories.map((repo) => {
-          const details = featuredDetails[repo.name];
-          const tags = getRepoTags(repo);
-
-          return (
-            <ScrollAnimation key={repo.id || repo.name}>
-              <article className="group bg-gray-900/70 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm h-full flex flex-col hover:border-white/20 hover:bg-gray-900/90 transition-all">
-                <div className="relative h-44 overflow-hidden bg-gradient-to-br from-gray-800 via-gray-950 to-black">
-                  <div className="absolute inset-0 gradient-grid opacity-70" />
-                  <div className="relative h-full p-6 flex flex-col justify-between">
-                    <Github className="w-8 h-8 text-gray-300" />
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">
-                        {details ? "Featured repository" : "Public repository"}
-                      </p>
-                      <h3 className="text-2xl font-semibold capitalize leading-tight">
-                        {formatRepoName(repo.name)}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <p className="text-gray-400 mb-5 flex-grow leading-relaxed">
-                    {details?.description ||
-                      repo.description ||
-                      "Explore the source code, implementation details and latest updates in this public repository."}
-                  </p>
-
-                  {tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2.5 py-1 text-xs bg-white/10 text-gray-300 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div className="flex items-center gap-5 border-t border-white/10 pt-4">
-                    <a
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      Source
-                    </a>
-                    {repo.homepage && (
-                      <a
-                        href={repo.homepage}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        Live demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </article>
-            </ScrollAnimation>
-          );
-        })}
+        <section
+          id={`projects-panel-${groups.findIndex((group) => group.title === activeTab)}`}
+          role="tabpanel"
+          aria-labelledby={`projects-tab-${groups.findIndex((group) => group.title === activeTab)}`}
+        >
+          <div className="project-section-label">
+            <p>{activeGroup.description}</p>
+            <span>{activeGroup.items.length} selected projects</span>
           </div>
-      </section>
+          {activeTab === "GitHub" && isLoading && !data && (
+            <div
+              className="mb-6 flex items-center gap-3 text-slate-500"
+              role="status"
+            >
+              <Loader2 className="h-5 w-5 animate-spin" /> Loading the latest
+              repositories...
+            </div>
+          )}
+          {activeTab === "GitHub" && error && (
+            <p className="mb-6 text-sm text-amber-700">
+              GitHub is temporarily unavailable, so featured repositories are
+              shown.
+            </p>
+          )}
+          <div
+            className={
+              activeGroup.type === "repo" ? "repo-grid" : "project-grid"
+            }
+          >
+            {activeGroup.items.map((item) => (
+              <ScrollAnimation key={item.title || item.id || item.name}>
+                {activeGroup.type === "repo" ? (
+                  <RepositoryCard repo={item} />
+                ) : (
+                  <ProjectCard project={item} />
+                )}
+              </ScrollAnimation>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

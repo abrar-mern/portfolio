@@ -54,30 +54,30 @@ const Certificates = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Award className="w-8 h-8" />
-          <h2 className="text-4xl font-bold gradient-text">Certificates</h2>
+          <Award className="w-8 h-8 text-blue-600" />
+          <h2 className="page-title">Certificates</h2>
         </motion.div>
       </ScrollAnimation>
 
       <div className="grid md:grid-cols-2 gap-6">
         {certificates.map((cert) => (
           <ScrollAnimation key={cert.id}>
-            <div className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all group border border-white/5 h-full flex flex-col">
-              <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-              <div className="text-gray-400 space-y-2 flex flex-col flex-grow">
+            <div className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6">
+              <h3 className="mb-2 text-xl font-semibold text-slate-900">{cert.title}</h3>
+              <div className="flex flex-grow flex-col space-y-2 text-slate-500">
                 <div className="flex items-center justify-between">
-                  <span className="text-lg">{cert.issuer}</span>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
+                  <span className="text-lg text-slate-700">{cert.issuer}</span>
+                  <div className="flex items-center gap-2 text-sm">
+                    <Calendar className="w-4 h-4 text-blue-600" />
                     <span>{cert.date}</span>
                   </div>
                 </div>
-                <p className="text-gray-300 line-clamp-2">{cert.description}</p>
+                <p className="line-clamp-2 text-slate-600">{cert.description}</p>
                 <div className="flex flex-wrap gap-2 mt-4">
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2 py-1 text-sm bg-white/10 rounded-full"
+                      className="rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-sm text-slate-700"
                     >
                       {skill}
                     </span>
@@ -89,7 +89,7 @@ const Certificates = () => {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 group-hover:translate-x-2 transition-transform"
+                      className="inline-flex items-center gap-2 font-medium text-blue-600 transition-colors hover:text-blue-800"
                     >
                       View Certificate
                       <ExternalLink className="w-4 h-4" />

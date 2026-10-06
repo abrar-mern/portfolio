@@ -128,13 +128,13 @@ const Skills = () => {
   return (
     <div className="min-h-screen pt-20 px-4 max-w-6xl mx-auto pb-20">
       <ScrollAnimation>
-        <h2 className="text-4xl font-bold mb-4 gradient-text">
+        <h2 className="page-title mb-4">
           Technical Skills
         </h2>
       </ScrollAnimation>
 
       <ScrollAnimation>
-        <p className="text-gray-400 mb-12 max-w-2xl">
+        <p className="text-slate-600 mb-12 max-w-2xl">
           A comprehensive overview of my technical expertise and tools I work
           with
         </p>
@@ -143,9 +143,9 @@ const Skills = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skillGroup) => (
           <ScrollAnimation key={skillGroup.category}>
-            <div className="bg-gray-800/50 p-6 rounded-lg backdrop-blur-sm hover:bg-gray-800/70 transition-all border border-white/5">
+            <div className="h-full rounded-xl border border-slate-200 bg-white p-6">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="p-2 bg-white/10 rounded-lg">
+                <div className="rounded-lg bg-blue-50 p-2 text-blue-600">
                   {skillGroup.icon}
                 </div>
                 <h3 className="text-lg font-semibold">{skillGroup.category}</h3>
@@ -154,12 +154,12 @@ const Skills = () => {
                 {skillGroup.items.map((skill) => (
                   <div
                     key={skill.name}
-                    className="bg-gray-700/50 px-4 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-white/10 transition-all group"
+                    className="flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 transition-colors hover:border-blue-200 hover:bg-blue-50 group"
                   >
-                    <div className="text-gray-400 group-hover:text-white transition-colors">
+                    <div className="text-slate-500 group-hover:text-blue-600 transition-colors">
                       {skill.icon}
                     </div>
-                    <span className="text-gray-400 group-hover:text-white transition-colors text-sm">
+                    <span className="text-slate-600 group-hover:text-blue-700 transition-colors text-sm">
                       {skill.name}
                     </span>
                   </div>

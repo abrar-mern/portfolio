@@ -99,8 +99,8 @@ const Experience = () => {
   return (
     <div className="min-h-screen pt-16 sm:pt-20 px-4 max-w-5xl mx-auto pb-16 sm:pb-20">
       <ScrollAnimation>
-        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 gradient-text flex items-center gap-3">
-          <Briefcase className="w-7 h-7 sm:w-8 sm:h-8" />
+        <h2 className="page-title mb-8 sm:mb-12 flex items-center gap-3">
+          <Briefcase className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600" />
           Professional Experience
         </h2>
       </ScrollAnimation>
@@ -108,7 +108,7 @@ const Experience = () => {
       <div className="space-y-8 sm:space-y-12">
         {experiences.map((exp) => (
           <ScrollAnimation key={exp.id}>
-            <div className="group relative bg-gray-800/50 rounded-xl sm:rounded-2xl overflow-hidden backdrop-blur-sm hover:bg-gray-800/70 transition-all border border-white/5">
+            <div className="group relative overflow-hidden rounded-xl border border-slate-200 bg-white sm:rounded-2xl">
               <div className="grid grid-cols-1 md:grid-cols-[1fr,300px]">
                 <div className="p-6 sm:p-8">
                   <div className="flex items-center gap-3 mb-4 sm:mb-6">
@@ -121,16 +121,16 @@ const Experience = () => {
                       />
                     </div>
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold mb-1">
+                      <h3 className="text-xl font-bold mb-1">
                         {exp.title}
                       </h3>
-                      <p className="text-gray-400 text-base sm:text-lg">
+                      <p className="text-slate-500 text-base sm:text-lg">
                         {exp.company}
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2 text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
+                  <div className="flex flex-wrap items-center gap-2 text-slate-600 mb-4 sm:mb-6 text-sm sm:text-base">
                     <MapPin className="w-4 h-4" />
                     <span>{exp.location}</span>
                     <span>•</span>
@@ -141,9 +141,9 @@ const Experience = () => {
                     {exp.description.map((item, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-3 text-gray-300 text-sm sm:text-base"
+                        className="flex items-start gap-3 text-slate-600 text-sm sm:text-base"
                       >
-                        <ArrowRight className="w-5 h-5 mt-0.5 text-gray-400 flex-shrink-0" />
+                        <ArrowRight className="w-5 h-5 mt-0.5 text-blue-600 flex-shrink-0" />
                         <span className="leading-relaxed">{item}</span>
                       </li>
                     ))}
@@ -154,7 +154,7 @@ const Experience = () => {
                       href={exp.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="md:hidden mt-6 inline-flex items-center gap-2 px-6 py-2.5 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg transition-all duration-300 text-sm font-medium"
+                      className="md:hidden mt-6 inline-flex items-center gap-2 px-6 py-2.5 !text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors text-sm font-medium"
                       whileHover={{ scale: 1.02 }}
                     >
                       {exp.actionLabel || "View Details"}
@@ -163,11 +163,10 @@ const Experience = () => {
                   )}
                 </div>
 
-                <div className="relative hidden md:block min-h-72 bg-gradient-to-br from-gray-800 via-gray-950 to-black border-l border-white/5">
-                  <div className="absolute inset-0 gradient-grid opacity-50" />
+                <div className="relative hidden md:block min-h-72 bg-slate-50 border-l border-slate-200">
                   <div className="relative h-full flex items-center justify-center">
                     <div className="flex flex-col items-center gap-6">
-                      <div className={`w-64 h-32 rounded-3xl ${exp.darkLogoSurface ? "bg-gray-950" : "bg-white"} p-4 flex items-center justify-center group-hover:scale-105 transition-transform`}>
+                      <div className={`w-64 h-32 rounded-xl border border-slate-200 ${exp.darkLogoSurface ? "bg-gray-950" : "bg-white"} p-4 flex items-center justify-center`}>
                         <img
                           src={exp.logo}
                           alt={`${exp.company} logo`}
@@ -180,7 +179,7 @@ const Experience = () => {
                           href={exp.certificateUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-8 py-3 text-white font-bold bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl flex items-center gap-2 transition-all duration-300 hover:scale-105 border border-white/10 hover:border-white/20"
+                          className="px-8 py-3 !text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center gap-2 transition-colors"
                           whileHover={{ y: -5 }}
                         >
                           {exp.actionLabel || "View Details"}

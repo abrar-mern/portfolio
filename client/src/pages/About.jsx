@@ -43,7 +43,7 @@ const About = () => {
   return (
     <div className="min-h-screen pt-20 px-4 max-w-4xl mx-auto pb-20">
       <ScrollAnimation>
-        <motion.h2 className="text-4xl font-bold mb-8 gradient-text">
+        <motion.h2 className="page-title mb-8">
           About Me
         </motion.h2>
       </ScrollAnimation>
@@ -82,7 +82,7 @@ const About = () => {
           </div>
 
           <div className="pt-4">
-            <h3 className="text-2xl font-semibold mb-4 gradient-text">
+            <h3 className="section-title mb-4">
               Quick Facts
             </h3>
             <ul className="list-none space-y-3">
@@ -105,7 +105,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
             >
-              Download Resume
+              
             </a>
             <Link
               to="/skills"
@@ -119,7 +119,7 @@ const About = () => {
 
       <ScrollAnimation>
         <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-8 gradient-text">
+          <h3 className="section-title mb-8">
             Achievements
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
@@ -141,7 +141,7 @@ const About = () => {
 
       <ScrollAnimation>
         <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-8 gradient-text">
+          <h3 className="section-title mb-8">
             Areas of Interest
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
