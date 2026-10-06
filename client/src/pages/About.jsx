@@ -105,7 +105,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-100 transition-colors"
             >
-              
+              Download Resume
             </a>
             <Link
               to="/skills"
